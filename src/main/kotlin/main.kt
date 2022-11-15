@@ -41,7 +41,8 @@ object WallService {
     private var posts = emptyArray<Post>()
     private var uniqueId: Int = 1
     fun add(post: Post): Post {
-        posts += post.copy(id = ++uniqueId)
+        posts += post.copy(id = uniqueId)
+        uniqueId++
         return posts.last()
     }
 
@@ -57,5 +58,9 @@ object WallService {
 
     fun print() {
         for (post in posts) println(post)
+    }
+
+    fun clear() {
+        posts = emptyArray()
     }
 }
