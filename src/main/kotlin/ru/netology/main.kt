@@ -1,5 +1,8 @@
 package ru.netology
 
+import Likes
+import Post
+
 fun main() {
     val post1 =
         Post(
@@ -30,9 +33,6 @@ fun main() {
             false,
             Likes(count = 95, userLikes = true, canLike = false, canPublish = true)
         )
-    WallService.add(post1)
-    WallService.add(post2)
-    println(WallService.update(post1))
     print(post1)
     println()
     print(post2)

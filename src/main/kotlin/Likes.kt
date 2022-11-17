@@ -1,5 +1,3 @@
-package ru.netology
-
 class Likes(
     var count: Int, // число пользователей, которым понравилась запись
     val userLikes: Boolean, // наличие отметки «Мне нравится» от текущего пользователя
