@@ -22,7 +22,7 @@ data class Post(
     val reposts: Reposts? = null, // информация о репостах к записи
     val views: Views? = null, // информация о просмотрах записи
     val geo: Geo? = null, // местоположение
-    val attachment: Attachment? = null // вложения
+    val attachment: Attachment? // вложения
 )
 
 class Comments(

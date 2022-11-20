@@ -1,6 +1,11 @@
 package ru.netology
 
+import Images
+import Photo
+import PhotoAttachment
 import Post
+import Sticker
+import StickerAttachment
 import WallService
 
 fun main() {
@@ -23,8 +28,9 @@ fun main() {
             true,
             true,
             false,
-            10
-        )
+            10,
+            attachment = PhotoAttachment(Photo(1,1,1,1,"текст",2022, null,10,10))
+            )
 
     val post2 =
         Post(
@@ -45,7 +51,8 @@ fun main() {
             false,
             true,
             false,
-            5
+            5,
+            attachment = StickerAttachment(Sticker(1,1,"url",true, Images("url", 1, 1)))
             )
     println(WallService.add(post1))
     println(WallService.add(post2))

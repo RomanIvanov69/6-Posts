@@ -1,5 +1,7 @@
 package ru.netology
 
+import Photo
+import PhotoAttachment
 import Post
 import WallService
 import org.junit.Assert.*
@@ -28,7 +30,8 @@ class WallServiceTest {
             true,
             true,
             false,
-            10
+            10,
+            attachment = null
         )
 
         val result = service.add(post).id
@@ -58,7 +61,8 @@ class WallServiceTest {
                 true,
                 true,
                 false,
-                10
+                10,
+                attachment = null
             )
         )
         service.add(
@@ -80,7 +84,8 @@ class WallServiceTest {
                 true,
                 true,
                 false,
-                10
+                10,
+                attachment = null
             )
         )
         val update = Post(
@@ -101,7 +106,8 @@ class WallServiceTest {
             true,
             true,
             false,
-            10
+            10,
+            attachment = null
         )
         val result = service.update(update)
         assertFalse(result)
@@ -128,7 +134,8 @@ class WallServiceTest {
                 true,
                 true,
                 false,
-                1
+                1,
+                attachment = PhotoAttachment(Photo(1,1,1,1,"текст",2022, null,10,10))
             )
         )
         service.add(
@@ -150,7 +157,8 @@ class WallServiceTest {
                 true,
                 true,
                 false,
-                1
+                1,
+                attachment = null
             )
         )
         val update = Post(
@@ -171,7 +179,8 @@ class WallServiceTest {
             true,
             true,
             false,
-            1
+            1,
+            attachment = null
         )
         val result = service.update(update)
         assertTrue(result)
