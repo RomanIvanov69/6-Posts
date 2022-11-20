@@ -13,6 +13,22 @@ class WallServiceTest {
         val post = Post(
             5,
             1,
+            10,
+            10,
+            2022,
+            "текст",
+            "тип",
+            true,
+            false,
+            false,
+            "копия",
+            10,
+            10,
+            false,
+            true,
+            true,
+            false,
+            10
         )
 
         val result = service.add(post).id
@@ -25,19 +41,67 @@ class WallServiceTest {
         val service = WallService
         service.add(
             Post(
-                2,
+                5,
                 1,
+                10,
+                10,
+                2022,
+                "текст",
+                "тип",
+                true,
+                false,
+                false,
+                "копия",
+                10,
+                10,
+                false,
+                true,
+                true,
+                false,
+                10
             )
         )
         service.add(
             Post(
+                5,
                 1,
                 1,
+                1,
+                2021,
+                "текст",
+                "тип",
+                true,
+                false,
+                false,
+                "копия",
+                10,
+                10,
+                false,
+                true,
+                true,
+                false,
+                10
             )
         )
         val update = Post(
-            100,
-            1,
+            5,
+            11,
+            11,
+            111,
+            2021,
+            "текст",
+            "тип",
+            true,
+            false,
+            true,
+            "копия",
+            10,
+            10,
+            false,
+            true,
+            true,
+            false,
+            10
         )
         val result = service.update(update)
         assertFalse(result)
@@ -47,20 +111,67 @@ class WallServiceTest {
     fun updateTrue() {
         val service = WallService
         service.add(
-            Post(
-                1000,
+            Post(1,
+                1,
+                1,
+                1,
+                2022,
+                "текст",
+                "тип",
+                true,
+                false,
+                true,
+                "копия",
                 10,
+                10,
+                false,
+                true,
+                true,
+                false,
+                1
             )
         )
         service.add(
             Post(
+                1,
                 2,
                 3,
+                4,
+                2022,
+                "текст",
+                "тип",
+                true,
+                false,
+                true,
+                "копия",
+                10,
+                10,
+                false,
+                true,
+                true,
+                false,
+                1
             )
         )
         val update = Post(
-            2,
-            2,
+            1,
+            1,
+            1,
+            1,
+            2022,
+            "текст",
+            "тип",
+            true,
+            false,
+            true,
+            "копия",
+            10,
+            10,
+            false,
+            true,
+            true,
+            false,
+            1
         )
         val result = service.update(update)
         assertTrue(result)
