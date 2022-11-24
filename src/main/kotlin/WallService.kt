@@ -1,5 +1,6 @@
 object WallService {
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
     private var uniqueId: Int = 0
 
 
@@ -10,6 +11,7 @@ object WallService {
 
     fun clear() {
         posts = emptyArray()
+        uniqueId = 0
     }
 
     fun update(post: Post): Boolean {
@@ -20,5 +22,20 @@ object WallService {
             }
         }
         return false
+    }
+    class PostNotFoundException(message: String): RuntimeException(message)
+    fun createComment(postId: Int, comment: Comment): Comment {
+        for (post in posts) {
+            if (postId == post.id) {
+                comments += comment
+                return comments.last()
+            }
+        }
+        throw PostNotFoundException("Post with ID $postId not found!")
+    }
+    fun printAll() {
+        for (post in posts) {
+            println(post)
+        }
     }
 }

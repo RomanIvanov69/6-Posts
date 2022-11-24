@@ -45,7 +45,6 @@ class Likes(
                 "\nИнформация о том, может ли текущий пользователь сделать репост записи - $canPublish" + "\n"
     }
 }
-
 class Reposts(
     val count: Int,
     val userReposted: Boolean
@@ -65,6 +64,32 @@ class Place(
     val id: Int? = null,
     val title: String? = null,
     val address: String? = null
+)
+class Comment(
+    val id: Int, // Идентификатор комментария.
+    val fromId: Int, // Идентификатор автора комментария.
+    val date: Int, // Дата создания комментария в формате Unixtime.
+    val text: String, // Текст комментария.
+    val donut: Donut?, // Информация о VK Donut. Объект со следующими полями:
+    val replyToUser: Int, // Идентификатор пользователя или сообщества, в ответ которому оставлен текущий комментарий (если применимо).
+    val replyToComment: Int, // Идентификатор комментария, в ответ на который оставлен текущий (если применимо).
+    val attachments: Attachment?, // Медиавложения комментария (фотографии, ссылки и т.п.). Описание массива attachments находится на отдельной странице.
+    val parents_stack: Array<Int>?, // Массив идентификаторов родительских комментариев.
+    val threadComments: Thread?, // Информация о вложенной ветке комментариев, объект с полями:
+)
+class Thread(
+    val count: Int, // количество комментариев в ветке.
+    val items: Array<String>, // массив объектов комментариев к записи (только для метода wall.getComments).
+    val canPost: Boolean, // может ли текущий пользователь оставлять комментарии в этой ветке.
+    val showReplyButton: Boolean, // нужно ли отображать кнопку «ответить» в ветке.
+    val groupsCanPost: Boolean // могут ли сообщества оставлять комментарии в ветке.
+)
+data class Donut(
+    val isDonut: Boolean, // запись доступна только платным подписчикам VK Donut;
+    val paidDuration: Int, // время, в течение которого запись будет доступна только платным подписчикам VK Donut;
+    val placeholder: String, // Заглушка для пользователей, которые не оформили подписку VK Donut. Отображается вместо содержимого записи.
+    val canPublishFreeCopy: Boolean, // можно ли открыть запись для всех пользователей, а не только подписчиков VK Donut;
+    val editMode: String // Информация о том, какие значения VK Donut можно изменить в записи.
 )
 
 

@@ -1,6 +1,7 @@
 package ru.netology
 
 import Images
+import Comment
 import Photo
 import PhotoAttachment
 import Post
@@ -54,6 +55,7 @@ fun main() {
             5,
             attachment = StickerAttachment(Sticker(1,1,"url",true, Images("url", 1, 1)))
             )
-    println(WallService.add(post1))
-    println(WallService.add(post2))
+    WallService.add(post1)
+    WallService.add(post2)
+    WallService.createComment(3,Comment(2,23,12121,"комментарий",null,55,6,null,null, null))
 }
